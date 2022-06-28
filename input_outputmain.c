@@ -13,15 +13,15 @@ __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_OFF & CP_ON);
  
 void main() {
     TRISB0 = 1; // Initialize PORTB0 as input(connect Button to RB0)
-    TRISA0 = 0; // Initialize PORTA as output(connect LED to RA0)
-    TRISA1 = 0; // Initialize PORTA as output(connect LED to RA0)
+    TRISA0 = 0; // Initialize PORTA0 as output(connect LED to RA0)
+    TRISA1 = 0; // Initialize PORTA1 as output(connect LED to RA1)
     while(1){
-        if(RB0 == 0){
-            RA0=1;    // Set RA0(make RA0 High)
-            RA1=0;
+        if(RB0 == 0){// if button is pressed
+            RA0=1;    // (make PORTA0 High and on the LED)
+            RA1=0;    // (make PORTA1 LOW and off the LED)
         }else{
-            RA0=0;    // Clear RA0(make RA0 LOW)
-            RA1=1;
+            RA0=0;    //(make PORTA0 LOW and off the LED) 
+            RA1=1;   //(make  PORTA1 High and on the LED)
         }
     }
 }
